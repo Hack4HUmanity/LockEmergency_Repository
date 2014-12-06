@@ -1,0 +1,387 @@
+package com.example.lockemergency;
+
+import java.util.LinkedList;
+
+
+import android.app.Activity;
+
+import android.location.Location;
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+
+public class MainActivity extends Activity {
+ 
+//buttons
+   Button btn1;
+Button btn2;
+Button btn3;
+Button btn4;
+Button btn5;
+Button btn6;
+Button btn7;
+Button btn8;
+Button btn9;
+Button btn10;
+String password;
+private LinkedList<String> ll = new LinkedList<String>();
+private int[] passwordNum = new int[4];
+public void onLocationChanged(Location location) {
+              // Called when a new location is found by the network location provider
+               longitude = String.valueOf(location.getLongitude());
+               latitude = String.valueOf(location.getLatitude());
+               Log.d(TAG, "changed Loc : " + longitude + ":" + latitude);
+       }
+
+public void onStatusChanged(String provider, int status, Bundle extras) {
+       }
+
+public void onProviderEnabled(String provider) {
+       }
+
+public void onProviderDisabled(String provider) {
+       }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    
+        button1Clicked();
+        button2Clicked();
+        button3Clicked();
+        button4Clicked();
+        button5Clicked();
+        button6Clicked();
+        button7Clicked();
+        button8Clicked();
+        button9Clicked();
+        button10Clicked();
+        
+        //password = "1234";
+password = "[1, 2, 3, 4]";
+        //checkPassword();
+       // showText();
+    }
+    
+    public Boolean checkPassword(){
+
+if(ll.toString().equals(password)){
+return true;
+}
+return false;
+}
+    
+  
+   public void showText(){
+  
+TextView textarea2 = (TextView)findViewById(R.id.text2);
+   
+    if(checkPassword()) {
+    sendSMS("4135618175","help me!");
+    sendSMS("4132109317","help me!");
+    //This is where we have to put in the map location 
+    }else{
+    textarea2.setText("false");
+    }
+   }
+   
+   
+   //added for sms
+   public void sendSMS( String phoneNo, String msg )
+   {
+       SmsManager sms = SmsManager.getDefault();
+       sms.sendTextMessage( phoneNo, null, msg, null, null );
+   }
+   
+    public void button1Clicked(){
+   
+    btn1 = (Button) findViewById(R.id.btn1);
+    btn1.setText("1");
+     
+         btn1.setOnClickListener( new View.OnClickListener() {
+             public void onClick(View v)
+             {
+             	ll.addLast("1");
+                
+                TextView textarea = (TextView)findViewById(R.id.text);
+            textarea.setText(ll.toString());
+            checkPassword();
+            showText();
+           
+             }
+         });
+         
+    }
+    
+    public void button2Clicked(){
+    
+    btn2 = (Button) findViewById(R.id.btn2);
+    btn2.setText("2");
+    btn2.setOnClickListener( new View.OnClickListener() {
+        public void onClick(View v)
+        {
+        ll.addLast("2");
+        TextView textarea = (TextView)findViewById(R.id.text);
+          textarea.setText(ll.toString());
+          checkPassword();
+          showText();
+
+        }
+    });
+    }
+    
+    public void button3Clicked(){
+        
+        btn3 = (Button) findViewById(R.id.btn3);
+        btn3.setText("3");
+        btn3.setOnClickListener( new View.OnClickListener() {
+            public void onClick(View v)
+            {
+            ll.addLast("3");
+            TextView textarea = (TextView)findViewById(R.id.text);
+            textarea.setText(ll.toString());
+            checkPassword();
+            showText();
+           
+            }
+        });
+        }
+    
+    public void button4Clicked(){
+        
+        btn4 = (Button) findViewById(R.id.btn4);
+        btn4.setText("4");
+        btn4.setOnClickListener( new View.OnClickListener() {
+            public void onClick(View v)
+            {
+            ll.addLast("4");
+            TextView textarea = (TextView)findViewById(R.id.text);
+            textarea.setText(ll.toString());
+            checkPassword();
+            showText();
+           
+            }
+        });
+        }
+    
+    public void button5Clicked(){
+        
+        btn5 = (Button) findViewById(R.id.btn5);
+        btn5.setText("5");
+        btn5.setOnClickListener( new View.OnClickListener() {
+            public void onClick(View v)
+            {
+            ll.addLast("5");
+            TextView textarea = (TextView)findViewById(R.id.text);
+            textarea.setText(ll.toString());
+            checkPassword();
+            showText();
+           
+            }
+        });
+    }
+    
+    
+    
+        public void button6Clicked(){
+            
+            btn6 = (Button) findViewById(R.id.btn6);
+            btn6.setText("6");
+            btn6.setOnClickListener( new View.OnClickListener() {
+                public void onClick(View v)
+                {
+                ll.addLast("6");
+                TextView textarea = (TextView)findViewById(R.id.text);
+                textarea.setText(ll.toString());
+                checkPassword();
+                showText();
+                }
+            });
+            
+        }
+        
+        
+        public void button7Clicked(){
+            
+            btn7 = (Button) findViewById(R.id.btn7);
+            btn7.setText("7");
+            btn7.setOnClickListener( new View.OnClickListener() {
+                public void onClick(View v)
+                {
+                ll.addLast("7");
+                TextView textarea = (TextView)findViewById(R.id.text);
+                textarea.setText(ll.toString());
+                checkPassword();
+                showText();
+                }
+            });
+            
+        }
+        
+        
+        
+        public void button8Clicked(){
+            
+            btn8 = (Button) findViewById(R.id.btn8);
+            btn8.setText("8");
+            btn8.setOnClickListener( new View.OnClickListener() {
+                public void onClick(View v)
+                {
+                ll.addLast("8");
+                TextView textarea = (TextView)findViewById(R.id.text);
+                textarea.setText(ll.toString());
+                checkPassword();
+                showText();
+                }
+            });
+            
+        }
+        
+          
+        
+        public void button9Clicked(){
+            
+            btn9 = (Button) findViewById(R.id.btn9);
+            btn9.setText("9");
+            btn9.setOnClickListener( new View.OnClickListener() {
+                public void onClick(View v)
+                {
+                ll.addLast("9");
+                TextView textarea = (TextView)findViewById(R.id.text);
+                textarea.setText(ll.toString());
+                checkPassword();
+                showText();
+  
+                }
+            });
+            
+        }
+        
+        
+        
+        public void button10Clicked(){
+            
+            btn10 = (Button) findViewById(R.id.btn10);
+            btn10.setText("0");
+            btn10.setOnClickListener( new View.OnClickListener() {
+                public void onClick(View v)
+                {
+                ll.addLast("0");
+                TextView textarea = (TextView)findViewById(R.id.text);
+                textarea.setText(ll.toString());
+                checkPassword();
+                showText();
+       
+                }
+            });
+            
+        }
+        
+        
+        
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+        private boolean servicesConnected() {
+                // Check that Google Play services is available
+                int resultCode =
+                        GooglePlayServicesUtil.
+                                isGooglePlayServicesAvailable(this);
+                // If Google Play services is available
+                if (ConnectionResult.SUCCESS == resultCode) {
+                    // In debug mode, log the status
+                    Log.d("Location Updates",
+                            "Google Play services is available.");
+                    // Continue
+                    return true;
+                // Google Play services was not available for some reason.
+                // resultCode holds the error code.
+                } else {
+                    // Get the error dialog from Google Play services
+                    Dialog errorDialog = GooglePlayServicesUtil.getErrorDialog(
+                            resultCode,
+                            this,
+                            CONNECTION_FAILURE_RESOLUTION_REQUEST);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void	sendTextMessage(String destinationAddress, String scAddress, String text, PendingIntent sentIntent, PendingIntent deliveryIntent)
+//and this is the callback feature to get the GPS location 
+// Acquire a reference to the system Location Manager
+LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+// Define a listener that responds to location updates
+LocationListener locationListener = new LocationListener() {
+    public void onLocationChanged(Location location) {
+      // Called when a new location is found by the network location provider.
+      makeUseOfNewLocation(location);
+    }
+
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+    public void onProviderEnabled(String provider) {}
+    
+
+    public void onProviderDisabled(String provider) {}
+  };
+  //To request location updates from the GPS provider, substitute GPS_PROVIDER for NETWORK_PROVIDER. 
+  You can also request location updates from both the GPS and the Network Location Provider by calling requestLocationUpdates() twice—once for NETWORK_PROVIDER and once for GPS_PROVIDER.
+  The first parameter in requestLocationUpdates() is the type of location provider to use (in this case, the Network Location Provider for cell tower and Wi-Fi based location). You can control the frequency at which your listener receives updates with the second and third parameter—the second is the minimum time interval between notifications and the third is the minimum change in distance between notifications—setting both to zero requests location notifications as frequently as possible. The last parameter is your LocationListener, which receives callbacks for location updates.
+  //And this is how to request the user to allow user permisison. In order to receive location updates from NETWORK_PROVIDER or GPS_PROVIDER, 
+  you must request user permission by declaring either the ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION permission, respectively, in your Android manifest file. For example:
+
+<manifest ... >
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    ...
+</manifest>
